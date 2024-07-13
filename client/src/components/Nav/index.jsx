@@ -27,15 +27,16 @@ export default function NavBar() {
         <AppBar position="fixed">
           <Toolbar>
             <Typography 
-                variant="h6" 
-                component="div" 
-                sx={{ flexGrow: 1, cursor: "pointer" }}
-                onClick={handleLogoClick}
+              variant="h5" 
+              component="div" 
+              sx={{ cursor: "pointer" }}
+              onClick={handleLogoClick}
             >
               VisioMetrics
             </Typography>
             <Button 
               color="inherit"
+              sx={{ marginLeft: "auto" }}
               onClick={handleLoginClick}
             >
               Login
