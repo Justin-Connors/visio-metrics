@@ -12,11 +12,21 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home/index";
 import Signup from "./pages/Signup/index";
 import Login from "./pages/Login/index";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import Auth from "./utils/auth";
+
+// create theme
+const theme = createTheme({
+  palette: {
+        mode: 'dark',
+  },
+});
 
 // graphql link
 const httpLink = createHttpLink({
@@ -42,19 +52,23 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <main className="mainSize">
-            <Routes>
-              <Route path="/" element={<Home title="VisioMetrics" />} />
-              <Route path="/signup" element={<Signup title="Sign-Up" />} />
-              <Route path="/login" element={<Login title="Login" />} />
-            </Routes>
-          </main>
-        </div>
-      </Router>
-    </ApolloProvider>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <Router>
+          <Nav />
+          <div>
+            <main className="mainSize">
+              <Routes>
+                <Route path="/" element={<Home title="VisioMetrics" />} />
+                <Route path="/signup" element={<Signup title="Sign-Up" />} />
+                <Route path="/login" element={<Login title="Login" />} />
+              </Routes>
+            </main>
+          </div>
+          <Footer />
+        </Router>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
