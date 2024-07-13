@@ -1,0 +1,26 @@
+{
+    "name": "visio-metrics",
+    "version": "1.0.0",
+    "description": "VisioMetrics is a cutting-edge data visualization platform designed to transform your raw data into actionable insights. Whether you're tracking social media engagement, monitoring financial markets, analyzing e-commerce sales, or visualizing health data, VisioMetrics empowers you to make informed decisions with confidence.",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "node server --ignore client",
+        "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+        "install": "cd server && npm i && cd ../client && npm i",
+        "seed": "cd server && npm run seed",
+        "build": "cd client && npm run build"
+    },
+    "keywords": [],
+    "author": "Justin Connors",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "dependencies": {
+        "react-icons": "^4.9.0"
+    },
+    "engines": {
+        "node": "18.x"
+    },
+    "homepage": "./client/build"
+}
